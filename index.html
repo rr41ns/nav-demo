@@ -29,6 +29,14 @@
 	//3.监听用户动作
 	listenKeyboard(hash)
 
+	function listenKeyboard(urlArray){
+		document.onkeypress=function(suibianqimingzi){
+		var key=suibianqimingzi['key']//q w e r
+		var website=urlArray[key]
+		// location.href="http://"+website
+		window.open("http://"+website,'_blank')
+		}
+	}
 	
 	//4.封装函数
 	function getFromLocalStorage(name){
@@ -88,7 +96,10 @@
 			q:'qq.com',
 			w:'weibo.com',
 			e:'ele.me',
-			t:'tianya.cn'
+			t:'tianya.cn',
+			z:'zhihu.com',
+			j:'jingdong.com',
+			v:'v2ex.com'
 			}
 	//取出localStorage中zzz对应的hash
 		var hashInLocalStorage=getFromLocalStorage('zzz')
@@ -101,6 +112,7 @@
 			"hash":hash
 		}
 	}
+	
 	function generateKeyboard(keys,hash){
 		for(var index=0; index< keys['length']; index = index+1 ){ 
 		var div1=tag('div',{className:'row'})//此处相当于把div当成一个hash，里面的key和value是className:'row'
@@ -129,14 +141,7 @@
 		}
 	}
 
-	function listenKeyboard(hash){
-		document.onkeypress=function(suibianqimingzi){
-		var key=suibianqimingzi['key']//q w e r
-		var website=hash[key]
-		// location.href="http://"+website
-		window.open("http://"+website,'_blank')
-		}
-	}
+
 	</script>
 
 </body>
